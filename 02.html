@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Page 2</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" />
+    <link rel="stylesheet" href="css/base.css" />
+</head>
+
+<body>
+	<div class="content">
+		<h1>
+			<script>
+				var your_name = localStorage.getItem("your_name");
+				if (your_name !== null && your_name !== '') {
+					document.write('Nice to meet you, ' +your_name);
+				}
+				else {
+					document.write('Hello there, nameless');
+				}
+	        </script>
+		</h1>
+
+		<p>Next we'll store a radio button selection.</p>
+
+		<form class="pure-form" action="03.html" method="post">
+			<fieldset>
+				<legend>
+					Please choose a fruit
+				</legend>
+				<label for="apple" class="pure-radio">
+					<input type="radio" id="apple" value="Apple" name="setFruit" checked>
+					Apple
+				</label>
+				<label for="banana" class="pure-radio">
+					<input type="radio" id="banana" value="Banana" name="setFruit" />
+					Banana
+				</label>
+				<label for="cherries" class="pure-radio">
+					<input type="radio" id="cherries" value="Cherry" name="setFruit" />
+					Cherries
+				</label>
+				<hr class="space-large">
+				<button class="pure-button pure-button-primary" onclick="localStorage.setItem('fruit', setFruit.value);">
+					Continue
+				</button>
+			</fieldset>
+		</form>
+
+	</div>
+</body>
+
+<script type="text/javascript">
+</script>
+
+</html>

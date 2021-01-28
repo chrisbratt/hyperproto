@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Page 4</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<style>
+.content-box {
+	display: none;
+}
+</style>
+
+<body>
+	<div class="content">
+		<h1>
+			You chose the number
+			<script>
+				var number = localStorage.getItem("number");
+				document.write('' +number);
+	        </script>
+		</h1>
+		<p>
+			Now let's show some content on this page based on your selection.
+		</p>
+
+		<form class="pure-form" action="04.html" method="post">
+			<fieldset>
+				<legend>
+					Choose another number
+				</legend>
+				<label for="number-1" class="pure-radio" onclick="localStorage.setItem('number2', '4');">
+					<input type="radio" id="number-1" value="4" name="setNumber2">
+					4
+				</label>
+				<label for="number-2" class="pure-radio" onclick="localStorage.setItem('number2', '5');">
+					<input type="radio" id="number-2" value="5" name="setNumber2" />
+					5
+				</label>
+				<label for="number-3" class="pure-radio" onclick="localStorage.setItem('number2', '6');">
+					<input type="radio" id="number-3" value="6" name="setNumber2" />
+					6
+				</label>
+				<hr class="space-large">
+				<div class="4 content-box">
+					<p>
+						You've chosen <strong>4</strong>
+					</p>
+				</div>
+				<div class="5 content-box">
+					<p>
+						You've chosen <strong>5</strong>
+					</p>
+				</div>
+				<div class="6 content-box">
+					<p>
+						You've chosen <strong>6</strong>
+					</p>
+				</div>
+			</fieldset>
+		</form>
+
+	</div>
+</body>
+
+<script type="text/javascript">
+	var radios = document.getElementsByName("setNumber2");
+	var val = localStorage.getItem('number2');
+	for(var i=0;i<radios.length;i++){
+	  if(radios[i].value == val){
+	      radios[i].checked = true;
+	  }
+	}
+
+	$(document).ready(function(){
+    $('input[type="radio"]').click(function(){
+        var inputValue = $(this).attr("value");
+        var targetBox = $("." + inputValue);
+        $(".content-box").not(targetBox).hide();
+        $(targetBox).show();
+    });
+});
+</script>
+
+</html>

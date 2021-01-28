@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Page 3</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<div class="content">
+		<h1>
+			You chose the 
+			<script>
+				var fruit = localStorage.getItem("fruit");
+				document.write('' +fruit);
+	        </script>
+		</h1>
+		<p>
+			Now let's take a look at storing a selection onClick
+		</p>
+
+		<form class="pure-form" action="04.html" method="post">
+			<fieldset>
+				<legend>
+					Choose a number
+				</legend>
+				<label for="number-1" class="pure-radio" onclick="localStorage.setItem('number', '1');">
+					<input type="radio" id="number-1" value="1" name="setNumber">
+					1
+				</label>
+				<label for="number-2" class="pure-radio" onclick="localStorage.setItem('number', '2');">
+					<input type="radio" id="number-2" value="2" name="setNumber" />
+					2
+				</label>
+				<label for="number-3" class="pure-radio" onclick="localStorage.setItem('number', '3');">
+					<input type="radio" id="number-3" value="3" name="setNumber" />
+					3
+				</label>
+				<hr class="space-large">
+				<p>If you <a href="#" onclick="window.location.reload(true);">refresh</a> this page, you'll notice your selection is still checked.</p>
+				<button class="pure-button pure-button-primary">
+					Continue
+				</button>
+			</fieldset>
+		</form>
+
+	</div>
+</body>
+
+<script type="text/javascript">
+	var radios = document.getElementsByName("setNumber"); // list of radio buttons
+	var val = localStorage.getItem('number'); // local storage value
+	for(var i=0;i<radios.length;i++){
+	  if(radios[i].value == val){
+	      radios[i].checked = true; // marking the required radio as checked
+	  }
+	}
+</script>
+
+</html>
